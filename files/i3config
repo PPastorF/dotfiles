@@ -33,7 +33,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -77,7 +77,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -174,9 +174,9 @@ bindsym $mod+Ctrl+Left resize shrink width 1 px or 1 ppt
 bindsym $mod+Ctrl+Down resize grow height 1 px or 1 ppt
 bindsym $mod+Ctrl+Up resize shrink height 1 px or 1 ppt
 bindsym $mod+Ctrl+Right resize grow width 1 px or 1 ppt
-
+ 
 # Lock screen
-bindsym $mod+Escape exec i3lock --color=000000
+bindsym $mod+Escape exec i3lock-fancy
 
 # Sound controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
@@ -191,3 +191,9 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# bindsym $mod+apostrophe
+new_window 1pixel
+
+# Fixing broken key :(
+exec xmodmap -e "keycode 90 = Right"

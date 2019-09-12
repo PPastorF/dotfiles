@@ -1,0 +1,12 @@
+[Unit]
+Description=printscreen on sleep
+Before=sleep.target
+
+[Service]
+User=%i
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/print-sleep
+
+[Install]
+WantedBy=sleep.target
