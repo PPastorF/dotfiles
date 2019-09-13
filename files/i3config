@@ -184,8 +184,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym $mod+bracketleft exec light -A 1000
+bindsym $mod+bracketright exec light -U 10000 
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
