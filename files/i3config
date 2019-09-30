@@ -424,11 +424,15 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
+for_window [class="gnome-disks"] floating enable
+
 exec xmodmap -e "keycode 90 = Right"
 
 exec "setxkbmap -layout br"
 
-bindsym $mod+r exec "cd $PROJ_DIR && make run"
 
-for_window [class="gnome-disks"] floating enable
+set $proj_dir ~/Documents/snek-bot
 for_window [title="Snake"] floating enable
+
+
+bindsym $mod+r exec "cd $proj_dir && make run"
