@@ -428,7 +428,7 @@ exec xmodmap -e "keycode 90 = Right"
 
 exec "setxkbmap -layout br"
 
-bindsym $mod+r exec make run
+bindsym $mod+r exec "cd $PROJ_DIR && make run"
 
 for_window [class="gnome-disks"] floating enable
 for_window [title="Snake"] floating enable
