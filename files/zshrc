@@ -109,12 +109,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias gitstatus="git status | less -r"
+alias gitcommit="git commit -am \"automated commit\""
 alias gitadd="git add ."
 alias gitpush="git push origin master"
-function gitcommit() {
-	read msg
-	git commit -m "$msg"
-}
 
 alias i3confv="vim ~/.i3/config"
 alias i3confs="subl ~/.i3/config"
