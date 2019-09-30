@@ -68,7 +68,17 @@ ZSH_THEME="risto"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+	git
+	web-search
+	colorize
+	docker
+	golang
+	wd
+	python
+	kubectl
+	jsontools
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,8 +108,23 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias zshconf="vim ~/.zshrc"
+alias gitstatus="git status | less -r"
+alias gitcommit="git commit -am \"automated commit\""
+alias gitadd="git add ."
+alias gitpush="git push origin master"
+function gitcommit() {
+	read msg
+	git commit -m "$msg"
+}
+
+alias i3confv="vim ~/.i3/config"
+alias i3confs="subl ~/.i3/config"
+alias zshconfv="vim ~/.zshrc"
+alias zshconfs="subl ~/.zshrc"
+
 alias reloadzsh="source ~/.zshrc"
 alias run="make && make run"
-alias i3conf="vim ~/.config/i3/config"
 alias ascii="cat ~/.ascii"
+alias wallp="feh --bg-scale"
+alias actenv="source env/bin/activate"
+alias setkey-br="setxkbmap -layout br"
