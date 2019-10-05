@@ -1,0 +1,18 @@
+{
+	"color_scheme": "Packages/Agila Theme/Agila Monokai Extended.tmTheme",
+	"font_size": 11,
+	"gutter": true,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_numbers": true,
+	"remember_open_files": false,
+	"rulers":
+	[
+		80
+	],
+	"theme": "Agila Neon.sublime-theme",
+	"translate_tabs_to_spaces": true
+}
