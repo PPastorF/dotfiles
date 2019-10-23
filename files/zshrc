@@ -108,10 +108,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias gitstatus="git status | less -r"
-alias gitcommit="git commit -am \"automated commit\""
-alias gitadd="git add ."
-alias gitpush="git push origin master"
+alias gstatus="git status | less -r"
+alias gcommit="git commit -am \"automated commit\""
+alias gadd="git add ."
+alias gpush="git push origin master"
 
 alias i3confv="vim ~/.i3/config"
 alias i3confs="subl ~/.i3/config"
@@ -124,3 +124,7 @@ alias ascii="cat ~/.ascii"
 alias wallp="feh --bg-scale"
 alias actenv="source env/bin/activate"
 alias setkey-br="setxkbmap -layout br"
+
+alias gstatus="watch -tc -n 0.1 git status"
+
+alias conserta_meu_teclado_ai="xmodmap -e 'keycode 90 = Right'"
