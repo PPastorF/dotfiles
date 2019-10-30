@@ -82,6 +82,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+export PATH="$PATH:/var/lib/snapd/snap/bin"
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -128,3 +130,6 @@ alias setkey-br="setxkbmap -layout br"
 alias gstatus="watch -tc -n 0.1 git status"
 
 alias conserta_meu_teclado_ai="xmodmap -e 'keycode 90 = Right'"
+
+alias brightness="xrandr --output eDP1 --brightness"
+alias backlight="sudo light -S"

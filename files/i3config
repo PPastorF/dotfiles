@@ -328,7 +328,7 @@ set_from_resource $term_color15    color15
 bar {
 	i3bar_command i3bar
 	status_command i3status
-	position bottom
+	position top
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
@@ -340,15 +340,15 @@ bar {
 	strip_workspace_numbers yes
 
     colors {
-        background #222D31
+        background #1a1a1a
         statusline #F9FAF9
         separator  #454947
 
-#                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
+#                            border  backgr. text
+        focused_workspace  #595B5B #076678 #FDF6E3
+        active_workspace   #262626 #353836 #FDF6E3
+        inactive_workspace #262626 #222D31 #EEE8D5
+        binding_mode       #262626 #2C2C2C #F9FAF9
         urgent_workspace   #16a085 #FDF6E3 #E5201D
     }
 }
@@ -434,4 +434,4 @@ set $proj_dir ~/Documents/snek-bot
 for_window [title="Snake"] floating enable
 
 bindsym Mod1+Tab focus right
-bindsym $mod+r exec "cd $proj_dir && make run"
+bindsym $mod+r exec "cd $proj_dir && source env/bin/activate && make run"
