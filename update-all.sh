@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo $PWD
+
 ./collect-tracked.sh
 
 git add .
