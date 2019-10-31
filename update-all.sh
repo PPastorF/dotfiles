@@ -1,6 +1,6 @@
 #!/bin/sh
 
-./collect-tracker.sh
+./collect-tracked.sh
 
 git add .
 git commit -m "automated commit"
