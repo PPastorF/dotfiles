@@ -110,10 +110,26 @@ export PATH="$PATH:/var/lib/snapd/snap/bin"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias gstatus="git status | less -r"
-alias gcommit="git commit -am \"automated commit\""
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+KUBE_PS1_SYMBOL_ENABLE=false
+KUBE_PS1_PREFIX='('
+KUBE_PS1_SUFFIX=')$ '
+source /home/pastor/kube-ps1/kube-ps1.sh
+PROMPT=$PROMPT'$(kube_ps1)'
+kubeoff
+
+alias kc="kubectl"
+alias kctx="kubectx"
+alias kns="kubens"
+alias kshow="kubeon"
+alias khide="kubeoff"
+
+alias gstatus="watch -tc -n 0.1 git status"
 alias gadd="git add ."
 alias gpush="git push origin master"
+alias gpull="git pull"
 
 alias i3confv="vim ~/.i3/config"
 alias i3confs="subl ~/.i3/config"
@@ -122,14 +138,17 @@ alias zshconfs="subl ~/.zshrc"
 
 alias reloadzsh="source ~/.zshrc"
 alias run="make && make run"
-alias ascii="cat ~/.ascii"
 alias wallp="feh --bg-scale"
 alias actenv="source env/bin/activate"
 alias setkey-br="setxkbmap -layout br"
-
-alias gstatus="watch -tc -n 0.1 git status"
-
 alias conserta_meu_teclado_ai="xmodmap -e 'keycode 90 = Right'"
-
 alias brightness="xrandr --output eDP1 --brightness"
 alias backlight="sudo light -S"
+
+alias gogo="cd $GOPATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/pastor/google-cloud-sdk/path.zsh.inc' ]; then source '/home/pastor/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/pastor/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/pastor/google-cloud-sdk/completion.zsh.inc'; fi
