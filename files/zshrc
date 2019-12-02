@@ -8,7 +8,7 @@ export ZSH="/home/pastor/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="risto"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -152,3 +152,4 @@ if [ -f '/home/pastor/google-cloud-sdk/path.zsh.inc' ]; then source '/home/pasto
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/pastor/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/pastor/google-cloud-sdk/completion.zsh.inc'; fi
+if [ /home/pastor/google-cloud-sdk/bin/kubectl ]; then source <(kubectl completion zsh); fi
