@@ -1,14 +1,12 @@
 {
-	"color_scheme": "Packages/Agila Theme/Markdown/Oceanic Next Markdown.tmTheme",
+	"color_scheme": "Packages/Agila Theme/Agila Monokai Extended.tmTheme",
 	"font_size": 11,
 	"gutter": true,
-	"hot_exit": false,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
 	"line_numbers": true,
-	"remember_open_files": false,
 	"rulers":
 	[
 		80

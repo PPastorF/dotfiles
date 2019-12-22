@@ -432,4 +432,3 @@ for_window [title="Snake"] floating enable
 bindsym Mod1+Tab focus right
 bindsym $mod+r exec "cd $proj_dir && source env/bin/activate && make run"
 bindsym $mod+Shift+Return exec "terminator --layout ops"
-exec "feh --bg-scale /home/pastor/Pictures/mntn.jpg"
