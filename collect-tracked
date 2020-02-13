@@ -21,6 +21,13 @@ fi
 input="$tracked"
 while IFS= read -r line
 do
+	line=$(echo $line | awk '{$line=$line;print}')
+	
+	first_char=${line:0:1}	
+	if [[ $first_char == "#" ]]; then
+		continue
+	fi
+
 	args=($line)
 	source=${args[0]}
 
@@ -30,7 +37,8 @@ do
 		dest_name=$(basename $source)
 	fi
 
-	source=$(echo $source | sed -e 's/$USER/'$USER'/')
+	source=$(eval echo $source)
+	
 	cp -u $source $dest/$dest_name
 	if [[ $? -eq 0 ]]; then
 		echo 'Updated '$dest_name' from '$source
