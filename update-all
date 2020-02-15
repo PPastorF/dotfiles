@@ -2,9 +2,10 @@
 
 
 workdir=$(dirname "$0")
-echo $workdir
 collect-tracked
 
+cd $workdir
 git add .
 git commit -m "automated commit"
 git push
+cd -
