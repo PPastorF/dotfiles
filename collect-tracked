@@ -47,7 +47,7 @@ do
 	fi
 
 	source=$(eval echo $source)
-	dest$(eval echo $dest)
+	dest=$(eval echo $dest)
 
 	cp -u $source $workdir/$dest
 	if [[ $? -eq 0 ]]; then
