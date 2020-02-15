@@ -1,7 +1,6 @@
 #!/bin/bash
 
 workdir=$(dirname "$0")
-echo $workdir
 tracked=$workdir/'tracked.txt'
 
 if [ ! -e $tracked ]; then
@@ -22,7 +21,6 @@ fi
 input="$tracked"
 while IFS= read -r line
 do
-	# limpa espaços da  linha
 	line=$(echo $line | awk '{$line=$line;print}')
 	if [[ $line == "" ]]; then
 		continue
@@ -45,7 +43,7 @@ do
 
 	destdir=$(dirname $dest)
 	if [[ ! -d $destdir ]]; then
-		mkdir -p $(dirname $dest) 
+		mkdir -p $destdir 
 	fi
 
 	source=$(eval echo $source)

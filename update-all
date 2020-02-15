@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 workdir=$(dirname "$0")
 collect-tracked
 
