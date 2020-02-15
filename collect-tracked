@@ -43,7 +43,7 @@ do
 
 	destdir=$(dirname $dest)
 	if [[ ! -d $destdir ]]; then
-		mkdir -p $destdir 
+		mkdir -p $workdir/$destdir
 	fi
 
 	source=$(eval echo $source)
