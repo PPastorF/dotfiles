@@ -1,3 +1,5 @@
-/home/$USER/.i3/config i3config
-/home/$USER/.zshrc zshrc
-/home/$USER/.config/sublime-text-3/Packages/User/Preferences.sublime-settings subl-config
+/home/$USER/.i3/config files/i3config
+/home/$USER/.zshrc files/zshrc
+/home/$USER/.config/sublime-text-3/Packages/User/Preferences.sublime-settings files/subl-config
+
+/usr/bin/gitignore scripts/gitignore

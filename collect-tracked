@@ -1,7 +1,8 @@
 #!/bin/bash
 
-tracked=$PWD/'tracked.txt'
-dest=$PWD/'files'
+workdir=$(dirname "$0")
+echo $workdir
+tracked=$workdir/'tracked.txt'
 
 if [ ! -e $tracked ]; then
 	echo 'tracked.txt is missing.'
@@ -21,7 +22,11 @@ fi
 input="$tracked"
 while IFS= read -r line
 do
+	# limpa espaços da  linha
 	line=$(echo $line | awk '{$line=$line;print}')
+	if [[ $line == "" ]]; then
+		continue
+	fi
 	
 	first_char=${line:0:1}	
 	if [[ $first_char == "#" ]]; then
@@ -32,16 +37,22 @@ do
 	source=${args[0]}
 
 	if [[ ${#args[@]} -gt 1 ]];then 
-		dest_name=${args[1]}
+		dest=${args[1]}
 	else
-		dest_name=$(basename $source)
+		dest=$(basename $source)
+	fi
+		echo $dest
+
+	destdir=$(dirname $dest)
+	if [[ ! -d $destdir ]]; then
+		mkdir -p $(dirname $dest) 
 	fi
 
 	source=$(eval echo $source)
 	
-	cp -u $source $dest/$dest_name
+	cp -u $source $workdir/$dest
 	if [[ $? -eq 0 ]]; then
-		echo 'Updated '$dest_name' from '$source
+		echo 'Updated '$dest' from '$source
 	else
 		echo 'Failed to update '$source
 	fi
