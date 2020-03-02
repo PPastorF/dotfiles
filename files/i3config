@@ -33,7 +33,7 @@ bindsym $mod+Return exec terminator
 bindsym $mod+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_recency -h 24 -sb "#076678" -nb "#1a1a1a" -l 5
+bindsym $mod+d exec --no-startup-id dmenu_run -sb "#076678" -nb "#1a1a1a" -l 5
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -354,13 +354,13 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
+  client.focused          #556065 #556064 #80FFF9 #FDF6E3
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #076678 #1ABC9C #268BD2
   client.placeholder      #000000 #0c0c0c #ffffff #000000 
 
-  client.background       #2B2C2B
+  client.background       #3B2C2B
 
 #############################
 ### settings for i3-gaps: ###
@@ -368,7 +368,7 @@ bindsym $mod+m bar mode toggle
 
 # Set inner/outer gaps
 gaps inner 8
-gaps outer 0
+gaps outer 4
 
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
