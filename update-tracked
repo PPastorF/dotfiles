@@ -1,7 +1,7 @@
 #!/bin/sh
 
 workdir=$(dirname "$0")
-collect-tracked
+dirname/collect-tracked
 
 cd $workdir
 git add .
