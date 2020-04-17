@@ -1,6 +1,8 @@
 set number
 set noshowmode
 set mouse=a
+inoremap <C-e> <C-o>$
+inoremap <C-a> <C-o>0
 
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

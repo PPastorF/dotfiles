@@ -79,6 +79,7 @@ plugins=(
 	python
 	kubectl
 	jsontools
+	pip
 )
 
 source $ZSH/oh-my-zsh.sh
