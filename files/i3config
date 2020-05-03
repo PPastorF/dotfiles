@@ -33,7 +33,7 @@ bindsym $mod+Return exec terminator
 bindsym $mod+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_recency -h 24 -sb "#076678" -nb "#1a1a1a" -l 5
+bindsym $mod+d exec --no-startup-id dmenu_recency -h 24 -sb "#0a84ff" -nb "#0a0b0c" -l 5
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -336,7 +336,7 @@ bar {
 	strip_workspace_numbers yes
 
     colors {
-        background #1a1a1a
+        background #0a0b0c
         statusline #F9FAF9
         separator  #454947
 
