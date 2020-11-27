@@ -14,8 +14,6 @@ new_float none
 # Hide borders
 hide_edge_borders none
 
-exec xrandr --output HDMI-1 --left-of DP-1
-
 # change borders
 bindsym $mod+u border none
 bindsym $mod+y border pixel 1
@@ -29,13 +27,13 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run -sb "#3584E4" -nb "#38383D" -l 5
+bindsym $mod+d exec --no-startup-id dmenu_recency -h 24 -sb "#14877c" -nb "#0a0b0c" -l 5
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -44,11 +42,11 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+#exec --no-startup-id volumeicon
+#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+exec --no-startup-id start-pulseaudio-x11
+bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
@@ -235,7 +233,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
@@ -276,22 +274,22 @@ mode "resize" {
 bindsym $mod+Escape exec --no-startup-id blurlock
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
 # Autostart applications
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-#exec --no-startup-id manjaro-hello
+exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id blueman-applet
-exec_always --no-startup-id sbxkb
+exec --no-startup-id pa-applet
+
+# exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec_always --no-startup-id ff-theme-util
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id nm-applet
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -331,8 +329,7 @@ bar {
 	position top
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
+	tray_output primary
 
 	bindsym button4 nop
 	bindsym button5 nop
@@ -340,7 +337,7 @@ bar {
 	strip_workspace_numbers yes
 
     colors {
-        background #1a1a1a
+        background #0a0b0c
         statusline #F9FAF9
         separator  #454947
 
@@ -358,13 +355,13 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556065 #556064 #80FFF9 #FDF6E3
+  client.focused          #556064 #556064 #80FFF9 #FDF6E3
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #076678 #1ABC9C #268BD2
   client.placeholder      #000000 #0c0c0c #ffffff #000000 
 
-  client.background       #3B2C2B
+  client.background       #2B2C2B
 
 #############################
 ### settings for i3-gaps: ###
@@ -372,7 +369,7 @@ bindsym $mod+m bar mode toggle
 
 # Set inner/outer gaps
 gaps inner 8
-gaps outer 4
+gaps outer 0
 
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -412,6 +409,7 @@ mode "$mode_gaps_inner" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
 mode "$mode_gaps_outer" {
         bindsym plus  gaps outer current plus 5
         bindsym minus gaps outer current minus 5
@@ -429,9 +427,5 @@ for_window [class="gnome-disks"] floating enable
 
 exec "setxkbmap -layout br"
 
-set $proj_dir ~/Documents/snek-bot
-for_window [title="Snake"] floating enable
-
 bindsym Mod1+Tab focus right
 bindsym $mod+r exec "cd $proj_dir && source env/bin/activate && make run"
-bindsym $mod+Shift+Return exec "terminator --layout ops"
