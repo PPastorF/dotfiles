@@ -1,5 +1,3 @@
 /home/$USER/.i3/config files/i3config
 /home/$USER/.zshrc files/zshrc
 /home/$USER/.config/nvim/init.vim files/init.vim
-
-/usr/bin/gitignore scripts/gitignore
